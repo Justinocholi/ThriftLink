@@ -1,0 +1,80 @@
+.searchSection {
+  background: white;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.searchContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.searchTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.mainSearch {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.locationInput {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-left: 1px solid #e5e7eb;
+  outline: none;
+  min-width: 150px;
+  background: #f9fafb;
+}
+
+.searchBtn {
+  padding: 1rem 2rem;
+  background: #25D366;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.searchBtn:hover {
+  background: #1FAD5C;
+}
+
+.quickFilters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterChip {
+  padding: 0.5rem 1rem;
+  background: #f3f4f6;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.filterChip:hover {
+  background: #25D366;
+  color: white;
+}
