@@ -1,28 +1,30 @@
 // components/Hero.tsx
+'use client';
 import React from "react";
+import styles from "../style/Hero.module.css";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-content">
+    <section className={styles.hero}>
+      <div className={styles.heroContent}>
         <h1>Nigeria&apos;s #1 WhatsApp Vendor Marketplace</h1>
-        <p className="hero-subtitle">
+        <p className={styles.heroSubtitle}>
           Connect with 5,000+ verified WhatsApp vendors • Shop safely • Buy smarter
         </p>
-        <div className="trust-indicators">
-          <div className="trust-item">
+        <div className={styles.trustIndicators}>
+          <div className={styles.trustItem}>
             <span role="img" aria-label="check">
               ✅
             </span>
             <span>2.4M+ Active Listings</span>
           </div>
-          <div className="trust-item">
+          <div className={styles.trustItem}>
             <span role="img" aria-label="shield">
               🛡️
             </span>
             <span>100% Verified Vendors</span>
           </div>
-          <div className="trust-item">
+          <div className={styles.trustItem}>
             <span role="img" aria-label="chat">
               💬
             </span>

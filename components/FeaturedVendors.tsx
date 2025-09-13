@@ -1,5 +1,7 @@
 // components/FeaturedVendors.tsx
+'use client';
 import React from "react";
+import styles from '../style/FeaturedVendors.module.css';
 
 interface Vendor {
   name: string;
@@ -38,32 +40,32 @@ const vendors: Vendor[] = [
 
 export default function FeaturedVendors() {
   return (
-    <section className="featured-vendors" id="vendors">
-      <div className="section-container">
-        <h2 className="section-title">Top Verified Vendors This Week</h2>
-        <div className="vendors-grid">
+    <section className={styles.featuredVendors} id="vendors">
+      <div className={styles.sectionContainer}>
+        <h2 className={styles.sectionTitle}>Top Verified Vendors This Week</h2>
+        <div className={styles.vendorsGrid}>
           {vendors.map((vendor, index) => (
-            <div key={index} className="vendor-card">
-              <div className="vendor-header">
-                <div className="vendor-avatar">{vendor.avatar}</div>
-                <div className="vendor-info">
+            <div key={index} className={styles.vendorCard}>
+              <div className={styles.vendorHeader}>
+                <div className={styles.vendorAvatar}>{vendor.avatar}</div>
+                <div className={styles.vendorInfo}>
                   <h3>{vendor.name}</h3>
                   {vendor.verified && (
-                    <span className="verification-badge">✅ Verified</span>
+                    <span className={styles.verificationBadge}>✅ Verified</span>
                   )}
                 </div>
               </div>
 
-              <div className="vendor-stats">
+              <div className={styles.vendorStats}>
                 <span>
                   ⭐ {vendor.rating} ({vendor.reviews} reviews)
                 </span>
                 <span>📦 {vendor.orders.toLocaleString()} orders</span>
               </div>
 
-              <div className="category-tag">{vendor.category}</div>
+              <div className={styles.categoryTag}>{vendor.category}</div>
 
-              <a href={vendor.whatsappLink} className="btn btn-whatsapp">
+              <a href={vendor.whatsappLink} className={styles.btnWhatsapp}>
                 💬 Chat on WhatsApp
               </a>
             </div>

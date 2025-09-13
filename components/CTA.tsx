@@ -1,5 +1,7 @@
 // components/CTA.tsx
+'use client';
 import React from "react";
+import styles from "../style/CTA.module.css";
 
 interface CTAButton {
   text: string;
@@ -27,20 +29,20 @@ const buttons: CTAButton[] = [
 
 export default function CTA() {
   return (
-    <section className="cta-section">
-      <div className="section-container">
-        <div className="cta-content">
+    <section className={styles.ctaSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.ctaContent}>
           <h2>Ready to Start Selling on WhatsApp?</h2>
           <p>
             Join thousands of successful vendors already using Thrift Link to
             grow their business
           </p>
-          <div className="cta-buttons">
+          <div className={styles.ctaButtons}>
             {buttons.map((btn, index) => (
               <a
                 key={index}
                 href={btn.href}
-                className={`btn btn-${btn.type} btn-large`}
+                className={`${btn.type === 'white' ? styles.btnWhite : btn.type === 'outline' ? styles.btnOutline : ''} ${styles.btnLarge}`}
                 style={btn.style}
               >
                 {btn.icon && <span>{btn.icon}</span>} {btn.text}

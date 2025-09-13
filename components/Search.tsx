@@ -1,29 +1,32 @@
+'use client';
+import styles from '../style/SearchSection.module.css';
+
 export default function Search() {
   return (
-    <section className="search-section">
-      <div className="search-container">
-        <h2 className="search-title">Find Trusted WhatsApp Vendors Near You</h2>
-        <div className="main-search">
+    <section className={styles.searchSection}>
+      <div className={styles.searchContainer}>
+        <h2 className={styles.searchTitle}>Find Trusted WhatsApp Vendors Near You</h2>
+        <div className={styles.mainSearch}>
           <input
             type="text"
-            className="search-input"
+            className={styles.searchInput}
             placeholder="What are you looking for? (e.g. iPhone, fashion, food)"
           />
           <input
             type="text"
-            className="location-input"
+            className={styles.locationInput}
             placeholder="Lagos, NG"
             defaultValue="Lagos, NG"
           />
-          <button className="search-btn">🔍 Search</button>
+          <button className={styles.searchBtn}>🔍 Search</button>
         </div>
-        <div className="quick-filters">
-          <a href="#" className="filter-chip">📱 Electronics</a>
-          <a href="#" className="filter-chip">👗 Fashion</a>
-          <a href="#" className="filter-chip">🍕 Food</a>
-          <a href="#" className="filter-chip">🏠 Home & Living</a>
-          <a href="#" className="filter-chip">💄 Beauty</a>
-          <a href="#" className="filter-chip">🔧 Services</a>
+        <div className={styles.quickFilters}>
+          <a href="#" className={styles.filterChip}>📱 Electronics</a>
+          <a href="#" className={styles.filterChip}>👗 Fashion</a>
+          <a href="#" className={styles.filterChip}>🍕 Food</a>
+          <a href="#" className={styles.filterChip}>🏠 Home & Living</a>
+          <a href="#" className={styles.filterChip}>💄 Beauty</a>
+          <a href="#" className={styles.filterChip}>🔧 Services</a>
         </div>
       </div>
     </section>

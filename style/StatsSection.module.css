@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

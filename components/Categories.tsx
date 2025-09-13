@@ -1,30 +1,31 @@
 // components/Categories.tsx
+'use client';
+
 import React from "react";
-import  "./style/Categories.module.css"
-import "./app/globals.css"
+import styles from "../style/Categories.module.css";
 
 export default function Categories() {
   return (
-    <section className="categories" id="categories">
-      <div className="section-container">
-        <h2 className="section-title">Browse by Category</h2>
-        <div className="categories-grid">
+    <section className={styles.categories} id="categories">
+      <div className={styles.sectionContainer}>
+        <h2 className={styles.sectionTitle}>Browse by Category</h2>
+        <div className={styles.categoriesGrid}>
           {/* Category 1 */}
-          <a href="#" className="category-card">
-            <span className="category-icon" role="img" aria-label="electronics">
+          <a href="#" className={styles.categoryCard}>
+            <span className={styles.categoryIcon} role="img" aria-label="electronics">
               📱
             </span>
-            <div className="category-name">Electronics</div>
-            <div className="category-count">12,450 vendors</div>
+            <div className={styles.categoryName}>Electronics</div>
+            <div className={styles.categoryCount}>12,450 vendors</div>
           </a>
 
           {/* Category 2 */}
-          <a href="#" className="category-card">
-            <span className="category-icon" role="img" aria-label="fashion">
+          <a href="#" className={styles.categoryCard}>
+            <span className={styles.categoryIcon} role="img" aria-label="fashion">
               👗
             </span>
-            <div className="category-name">Fashion &amp; Beauty</div>
-            <div className="category-count">8,920 vendors</div>
+            <div className={styles.categoryName}>Fashion &amp; Beauty</div>
+            <div className={styles.categoryCount}>8,920 vendors</div>
           </a>
 
           {/* Add more categories here */}

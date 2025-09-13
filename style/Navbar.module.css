@@ -59,8 +59,54 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #666;
   font-size: 0.9rem;
+  color: #6b7280;
+  margin-right: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btnOutline {
+  border: 1px solid #25D366;
+  color: #25D366;
+  background: transparent;
+}
+
+.btnOutline:hover {
+  background: rgba(37, 211, 102, 0.1);
+}
+
+.postAdBtn {
+  background: #25D366;
+  color: white;
+  border: none;
+}
+
+.postAdBtn:hover {
+  background: #20b858;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.locationSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-right: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
