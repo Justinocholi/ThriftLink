@@ -2,12 +2,14 @@
 'use client';
 import React from "react";
 import styles from "../style/CTA.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRocket, faBook } from '@fortawesome/free-solid-svg-icons';
 
 interface CTAButton {
   text: string;
   href: string;
   type: "primary" | "outline" | "white";
-  icon?: string;
+  icon?: any;
   style?: React.CSSProperties;
 }
 
@@ -16,13 +18,13 @@ const buttons: CTAButton[] = [
     text: "Get Verified Now",
     href: "#apply",
     type: "white",
-    icon: "🚀",
+    icon: faRocket,
   },
   {
     text: "Learn More",
     href: "#learn",
     type: "outline",
-    icon: "📚",
+    icon: faBook,
     style: { borderColor: "white", color: "white" },
   },
 ];
@@ -42,10 +44,10 @@ export default function CTA() {
               <a
                 key={index}
                 href={btn.href}
-                className={`${btn.type === 'white' ? styles.btnWhite : btn.type === 'outline' ? styles.btnOutline : ''} ${styles.btnLarge}`}
+                className={btn.type === 'white' ? styles.btnWhite : btn.type === 'outline' ? styles.btnOutline : `btn btn-${btn.type} btn-large`}
                 style={btn.style}
               >
-                {btn.icon && <span>{btn.icon}</span>} {btn.text}
+                {btn.icon && <FontAwesomeIcon icon={btn.icon} />} {btn.text}
               </a>
             ))}
           </div>

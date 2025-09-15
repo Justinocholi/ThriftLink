@@ -55,7 +55,7 @@ export default function VendorsPage() {
       
       {vendors.length === 0 ? (
         <div className="empty-vendors">
-          <p>No vendors found. Check back soon!</p>
+          <p>No current vendors listed</p>
         </div>
       ) : (
         <div className="vendors-grid">
@@ -82,9 +82,9 @@ export default function VendorsPage() {
 
                 <div className="vendor-stats">
                   <span>
-                    ⭐ {vendor.rating ? vendor.rating.toFixed(1) : '0.0'} ({vendor.total_reviews || 0} reviews)
+                    ⭐ {vendor.rating.toFixed(1)} ({vendor.total_reviews} reviews)
                   </span>
-                  <span>📦 {(vendor.total_orders || 0).toLocaleString()} orders</span>
+                  <span>📦 {vendor.total_orders.toLocaleString()} orders</span>
                 </div>
 
                 <div className="vendor-location">📍 {vendor.location}</div>

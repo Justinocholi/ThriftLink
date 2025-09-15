@@ -2,17 +2,25 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { supabase } from './supabaseClient';
-import { User } from './database';
 import { useRouter } from 'next/navigation';
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, firebaseSignOut, onAuthStateChanged, FirebaseUser, googleProvider, facebookProvider, signInWithPopup } from './firebase';
+
+// Define User type
+type User = {
+  id: string;
+  email: string;
+  full_name?: string;
+  role?: 'user' | 'vendor';
+};
 
 type AuthContextType = {
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signUp: (email: string, password: string, fullName: string) => Promise<{ error: any, user: any }>;
+  signInWithGoogle: () => Promise<{ error: any }>;
+  signInWithFacebook: () => Promise<{ error: any }>;
   signOut: () => Promise<void>;
-  resetPassword: (email: string) => Promise<{ error: any }>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -23,102 +31,90 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Check active sessions and sets the user
-    const getSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session?.user) {
-        const { data } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+    // Listen for Firebase auth state changes
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        // User is signed in
+        const userData: User = {
+          id: firebaseUser.uid,
+          email: firebaseUser.email || '',
+          full_name: firebaseUser.displayName || undefined,
+          role: 'user' // Default role, can be updated later
+        };
         
-        setUser(data as User);
+        setUser(userData);
+      } else {
+        // User is signed out
+        setUser(null);
       }
       
       setLoading(false);
-    };
+    });
 
-    getSession();
-
-    // Listen for changes on auth state
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (session?.user) {
-          const { data } = await supabase
-            .from('users')
-            .select('*')
-            .eq('id', session.user.id)
-            .single();
-          
-          setUser(data as User);
-        } else {
-          setUser(null);
-        }
-        
-        setLoading(false);
-      }
-    );
-
-    return () => {
-      subscription.unsubscribe();
-    };
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   // Sign in with email and password
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error };
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
   };
 
   // Sign up with email and password
   const signUp = async (email: string, password: string, fullName: string) => {
-    const { data, error } = await supabase.auth.signUp({ 
-      email, 
-      password,
-      options: {
-        data: {
-          full_name: fullName,
-        },
-      },
-    });
-
-    if (!error && data?.user) {
-      // Create a record in the users table
-      const { error: profileError } = await supabase.from('users').insert([
-        {
-          id: data.user.id,
-          email,
-          full_name: fullName,
-          role: 'user',
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-        },
-      ]);
-
-      if (profileError) {
-        return { error: profileError, user: null };
-      }
-
-      return { error: null, user: data.user };
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // Create a user object
+      const userData = {
+        id: userCredential.user.uid,
+        email,
+        full_name: fullName,
+        role: 'user'
+      };
+      
+      // Here you would typically store additional user data in Firestore
+      // For now, we'll just return the user data
+      
+      return { error: null, user: userData };
+    } catch (error) {
+      return { error, user: null };
     }
-
-    return { error, user: null };
   };
 
   // Sign out
   const signOut = async () => {
-    await supabase.auth.signOut();
-    router.push('/');
+    try {
+      await firebaseSignOut(auth);
+      router.push('/');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
-  // Reset password
-  const resetPassword = async (email: string) => {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
-    });
-    return { error };
+  // Sign in with Google
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
+  };
+
+  // Sign in with Facebook
+  const signInWithFacebook = async () => {
+    try {
+      await signInWithPopup(auth, facebookProvider);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
   };
 
   const value = {
@@ -126,14 +122,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     loading,
     signIn,
     signUp,
+    signInWithGoogle,
+    signInWithFacebook,
     signOut,
-    resetPassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-// Custom hook to use the auth context
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {

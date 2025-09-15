@@ -104,14 +104,14 @@ export default function Products() {
 
       if (searchTerm) {
         const term = searchTerm.toLowerCase();
-        formattedProducts = formattedProducts.filter(
+        filteredProducts = filteredProducts.filter(
           (product) =>
             product.name.toLowerCase().includes(term) ||
             product.description.toLowerCase().includes(term)
         );
       }
 
-      setProducts(formattedProducts || []);
+      setProducts(filteredProducts || []);
     } catch (err: any) {
       console.error('Error filtering products:', err);
       setError(err.message || 'Failed to filter products');

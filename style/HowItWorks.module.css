@@ -39,7 +39,7 @@
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background: #25D366;
+  background: #10b981;
   color: white;
   width: 30px;
   height: 30px;
@@ -54,7 +54,7 @@
 .stepIcon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #25D366;
+  color: #10b981;
 }
 
 .stepTitle {
@@ -73,4 +73,48 @@
   color: #6b7280;
   line-height: 1.6;
   font-size: 0.9rem;
+}
+
+/* CTA Section Styles */
+.ctaContainer {
+  margin-top: 4rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaContainer h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #10b981;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

@@ -296,60 +296,6 @@
   margin-bottom: 1rem;
 }
 
-/* Social login */
-.auth-divider {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  color: #9ca3af;
-  font-size: 0.875rem;
-}
-
-.auth-divider::before,
-.auth-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: #e5e7eb;
-}
-
-.auth-divider span {
-  padding: 0 1rem;
-}
-
-.auth-social-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.auth-social-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background-color: white;
-  font-weight: 500;
-  color: #4b5563;
-  transition: all 0.15s ease-in-out;
-  cursor: pointer;
-}
-
-.auth-social-btn:hover {
-  background-color: #f9fafb;
-}
-
-.auth-google-btn svg {
-  color: #ea4335;
-}
-
-.auth-facebook-btn svg {
-  color: #1877f2;
-}
-
 /* Dashboard Styles */
 .dashboard-container {
   max-width: 1200px;

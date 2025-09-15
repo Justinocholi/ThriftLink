@@ -24,11 +24,11 @@ export default function Products() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!loading && (!user || user.role !== 'vendor')) {
-      router.push('/dashboard');
-    }
-  }, [user, loading, router]);
+  // Redirect if not logged in or not a vendor
+  if (!loading && (!user || user.role !== 'vendor')) {
+    router.push('/dashboard');
+    return null;
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {

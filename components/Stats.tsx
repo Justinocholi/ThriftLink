@@ -12,7 +12,7 @@ export default function Stats() {
           {/* Stat 1 */}
           <div className={styles.statItem}>
             <span className={styles.statNumber} aria-label="five thousand plus">
-              <CountUp end={5000} suffix="+" />
+              5,000+
             </span>
             <span className={styles.statLabel}>Verified Vendors</span>
           </div>
@@ -20,7 +20,7 @@ export default function Stats() {
           {/* Stat 2 */}
           <div className={styles.statItem}>
             <span className={styles.statNumber} aria-label="two point four million plus">
-              <CountUp end={2.4} suffix="M+" decimals={1} />
+              2.4M+
             </span>
             <span className={styles.statLabel}>Products Listed</span>
           </div>
@@ -28,7 +28,7 @@ export default function Stats() {
           {/* Stat 3 */}
           <div className={styles.statItem}>
             <span className={styles.statNumber} aria-label="five hundred thousand plus">
-              <CountUp end={500} suffix="K+" />
+              500K+
             </span>
             <span className={styles.statLabel}>Happy Customers</span>
           </div>
@@ -36,7 +36,7 @@ export default function Stats() {
           {/* Stat 4 */}
           <div className={styles.statItem}>
             <span className={styles.statNumber} aria-label="twenty five plus">
-              <CountUp end={25} suffix="+" />
+              25+
             </span>
             <span className={styles.statLabel}>States Covered</span>
           </div>

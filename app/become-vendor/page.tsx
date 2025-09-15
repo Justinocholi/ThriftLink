@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabaseClient';
+import styles from '@/style/BecomeVendor.module.css';
 
 export default function BecomeVendor() {
   const { user, loading } = useAuth();
@@ -82,21 +83,21 @@ export default function BecomeVendor() {
   };
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
 
   return (
-    <div className="become-vendor-container">
-      <div className="become-vendor-header">
+    <div className={styles.becomeVendorContainer}>
+      <div className={styles.becomeVendorHeader}>
         <h1>Become a Vendor</h1>
         <p>Start selling your products on Thrift Link</p>
       </div>
 
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className={styles.errorMessage}>{error}</div>}
 
-      <div className="become-vendor-card">
-        <form onSubmit={handleSubmit} className="become-vendor-form">
-          <div className="form-group">
+      <div className={styles.becomeVendorCard}>
+        <form onSubmit={handleSubmit} className={styles.becomeVendorForm}>
+          <div className={styles.formGroup}>
             <label htmlFor="businessName">Business Name</label>
             <input
               id="businessName"
@@ -109,7 +110,7 @@ export default function BecomeVendor() {
             />
           </div>
 
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="description">Business Description</label>
             <textarea
               id="description"
@@ -122,7 +123,7 @@ export default function BecomeVendor() {
             />
           </div>
 
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="whatsappNumber">WhatsApp Number</label>
             <input
               id="whatsappNumber"
@@ -135,7 +136,7 @@ export default function BecomeVendor() {
             />
           </div>
 
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="category">Business Category</label>
             <select
               id="category"
@@ -155,7 +156,7 @@ export default function BecomeVendor() {
             </select>
           </div>
 
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="location">Business Location</label>
             <input
               id="location"
@@ -168,14 +169,14 @@ export default function BecomeVendor() {
             />
           </div>
 
-          <div className="vendor-terms">
+          <div style={{ marginBottom: '1.5rem' }}>
             <p>
               By becoming a vendor, you agree to our Vendor Terms of Service and
               commit to providing excellent customer service through WhatsApp.
             </p>
           </div>
 
-          <button type="submit" className="btn btn-primary" disabled={submitting}>
+          <button type="submit" className={`${styles.btn} ${styles.btnPrimary}`} disabled={submitting}>
             {submitting ? 'Creating Vendor Profile...' : 'Become a Vendor'}
           </button>
         </form>

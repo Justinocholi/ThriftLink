@@ -37,10 +37,10 @@ export default function Footer() {
           <div className={styles.footerSection}>
             <h4>For Buyers</h4>
             <div className={styles.footerLinks}>
-              <a href="/vendors">Browse Vendors</a>
-              <a href="/products">Shop by Category</a>
-              <a href="/#safety">Safety Tips</a>
-              <a href="/#reviews">Vendor Reviews</a>
+              <a href="/vendors">Verified Vendors</a>
+              <a href="/categories">Categories</a>
+              <a href="/howitworks">How It Works</a>
+              <a href="/support">Safety Tips</a>
             </div>
           </div>
 
@@ -59,10 +59,10 @@ export default function Footer() {
           <div className={styles.footerSection}>
             <h4>Support</h4>
             <div className={styles.footerLinks}>
-              <a href="/#help">Help Center</a>
-              <a href="/#support">Contact Us</a>
-              <a href="/#faq">FAQ</a>
-              <a href="/#report">Report Issues</a>
+              <a href="/support">Help Center</a>
+              <a href="/support">Contact Us</a>
+              <a href="/howitworks">FAQ</a>
+              <a href="/support">Report Issues</a>
             </div>
           </div>
 
@@ -70,10 +70,10 @@ export default function Footer() {
           <div className={styles.footerSection}>
             <h4>Legal</h4>
             <div className={styles.footerLinks}>
-              <a href="/#privacy">Privacy Policy</a>
-              <a href="/#terms">Terms of Service</a>
-              <a href="/#vendor-policy">Vendor Policy</a>
-              <a href="/#cookies">Cookie Policy</a>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Service</a>
+              <a href="#vendor-policy">Vendor Policy</a>
+              <a href="#cookies">Cookie Policy</a>
             </div>
           </div>
         </div>
