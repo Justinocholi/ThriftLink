@@ -12,13 +12,26 @@ const Support = () => {
   ];
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="support-page" style={{ fontFamily: "'Inter', sans-serif", minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .support-page main { padding: 2rem 1rem; }
+            .support-hero h1 { font-size: 2rem; }
+            .support-hero p { font-size: 1rem; }
+            .contact-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .faq-list { padding: 0 0.25rem; }
+            .card { padding: 1.25rem !important; }
+            .icon-circle { width: 50px !important; height: 50px !important; }
+          }
+        `}
+      </style>
       <Navbar />
       
       <main style={{ flex: 1, padding: '4rem 2rem', background: '#f8fafc' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+          <div className="support-hero" style={{ textAlign: 'center', marginBottom: '5rem' }}>
             <h1 style={{ fontSize: '3rem', fontWeight: '800', color: '#1f2937', marginBottom: '1.5rem' }}>
               We're here to help
             </h1>
@@ -27,10 +40,9 @@ const Support = () => {
             </p>
           </div>
 
-          {/* Contact Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
-            <div style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-              <div style={{ width: '60px', height: '60px', background: '#eff6ff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#3b82f6' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
+            <div className="card" style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+              <div className="icon-circle" style={{ width: '60px', height: '60px', background: '#eff6ff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#3b82f6' }}>
                 <Mail size={24} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Email Support</h3>
@@ -38,8 +50,8 @@ const Support = () => {
               <a href="mailto:support@thriftlink.com" style={{ color: '#3b82f6', fontWeight: '600', textDecoration: 'none' }}>support@thriftlink.com</a>
             </div>
 
-            <div style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-              <div style={{ width: '60px', height: '60px', background: '#dcfce7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#15803d' }}>
+            <div className="card" style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+              <div className="icon-circle" style={{ width: '60px', height: '60px', background: '#dcfce7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#15803d' }}>
                 <MessageCircle size={24} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Live Chat</h3>
@@ -47,8 +59,8 @@ const Support = () => {
               <button style={{ background: 'none', border: 'none', color: '#15803d', fontWeight: '600', cursor: 'pointer' }}>Start Chat</button>
             </div>
 
-            <div style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-              <div style={{ width: '60px', height: '60px', background: '#fef3c7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#d97706' }}>
+            <div className="card" style={{ background: 'white', padding: '2rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+              <div className="icon-circle" style={{ width: '60px', height: '60px', background: '#fef3c7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', color: '#d97706' }}>
                 <Phone size={24} />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Phone Support</h3>
@@ -57,13 +69,12 @@ const Support = () => {
             </div>
           </div>
 
-          {/* FAQs */}
           <section>
             <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#1f2937', marginBottom: '3rem', textAlign: 'center' }}>Frequently Asked Questions</h2>
             
-            <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
+            <div className="faq-list" style={{ display: 'grid', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
               {faqs.map((faq, index) => (
-                <div key={index} style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+                <div key={index} className="card" style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.5rem', color: '#1f2937' }}>{faq.q}</h3>
                   <p style={{ color: '#64748b', lineHeight: '1.6' }}>{faq.a}</p>
                 </div>
