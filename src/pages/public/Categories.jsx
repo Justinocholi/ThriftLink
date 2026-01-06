@@ -27,6 +27,16 @@ const Categories = () => {
 
   return (
     <div style={{ fontFamily: "'Inter', sans-serif", background: '#f9fafb', color: '#333', minHeight: '100vh' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .section-container { padding: 6rem 1rem 3rem !important; }
+            .categories-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .category-card { padding: 1.5rem 1rem !important; }
+            .category-icon { width: 60px !important; height: 60px !important; }
+          }
+        `}
+      </style>
       <Navbar />
 
       <section className="section-container" style={{

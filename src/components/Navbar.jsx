@@ -107,6 +107,12 @@ const Navbar = () => {
              box-shadow: 0 4px 6px rgba(0,0,0,0.1);
              display: none; /* Default hidden on mobile */
           }
+          .nav-links.active {
+            display: flex;
+          }
+          .header-actions {
+            gap: 0.5rem;
+          }
         }
         @media (min-width: 769px) {
           .mobile-menu-btn {

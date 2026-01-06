@@ -7,6 +7,7 @@ import whatsappIcon from '../../assets/whatsapp.png';
 import shieldIcon from '../../assets/shield.png';
 import starIcon from '../../assets/star.png';
 import heartIcon from '../../assets/heart.png';
+import checklistIcon from '../../assets/checklist.png';
 
 const VerifiedVendors = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -221,19 +222,11 @@ const VerifiedVendors = () => {
                 </div>
                 <div className="vendor-info" style={{ flex: 1 }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: '700', color: '#1f2937', marginBottom: '0.3rem' }}>{vendor.name}</h3>
-                  <div className="verification-badge" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.3rem',
-                    background: '#dcfce7',
-                    color: '#166534',
-                    padding: '0.3rem 0.8rem',
-                    borderRadius: '15px',
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    marginBottom: '0.5rem'
-                  }}>
-                    <img src={shieldIcon} alt="Verified" style={{ width: '12px', height: '12px', objectFit: 'contain' }} /> Verified Vendor
+                  <div className="verification-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: '#dcfce7', color: '#166534', padding: '0.3rem 0.8rem', borderRadius: '15px', fontSize: '0.75rem', fontWeight: '600', marginBottom: '0.5rem' }}>
+                    <span style={{ width: '16px', height: '16px', borderRadius: '50%', background: '#25D366', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <img src={checklistIcon} alt="Verified" style={{ width: '10px', height: '10px', filter: 'brightness(0) invert(1)' }} />
+                    </span>
+                    Verified Vendor
                   </div>
                   <div className="vendor-rating" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: '#6b7280' }}>
                     <div className="rating-stars" style={{ display: 'inline-flex', gap: '2px', verticalAlign: 'middle' }}>
